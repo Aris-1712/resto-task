@@ -1,25 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import * as Actions from './Global/Actions'
+import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import Banner from './Components/Banner';
+import Menu from './Components/Menu';
+import Sections from './Components/Sections';
+function App(props) {
+  const getData=()=>{
+    console.log("here2");
+props.getData()
+  }
+  useEffect(()=>{
+    getData()
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {"success" in props.data?
+      <>
+      <Banner></Banner>
+      <Menu></Menu>
+      <Sections></Sections>
+      </>
+      :null}
     </div>
   );
 }
-
-export default App;
+const mapStateToProps=(state)=>{
+  return({
+      data:state.data
+  })
+}
+const mapActionsToProps=(dispatch)=>{
+  return({
+    getData:()=>{
+      console.log("here3");
+      dispatch(Actions.getData())}
+  })
+}
+export default connect(mapStateToProps,mapActionsToProps)(App);

@@ -1,0 +1,27 @@
+.menu{
+    /* height: 100px; */
+    padding: 20px;
+    display:flex;
+    justify-content: space-evenly;
+    overflow-x: auto;
+}
+.menu div{
+    /* display: inline; */
+    width:100px;
+    margin: 0px 20px;
+    border-bottom: 1px solid black;
+    color: rgb(107, 163, 216);
+    text-align: center;
+    padding: 10px;
+}
+.active{
+    color:black !important
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    /* background: #FF0000; */
+}
