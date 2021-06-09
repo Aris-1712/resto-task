@@ -8,9 +8,10 @@ return(
     <div className="menu">
         {props.data.menu[props.menu].menu_sections[0].menu_categories.map((ele,ind)=>{
             console.log(ele);
-            return(<div onClick={()=>{
+            return(<div  onClick={()=>{
                 props.setSection(ind)
-            }} className='active'>
+                window.scrollTo({top: 0, behavior: 'smooth'})
+            }} className={props.section===ind?"menuName active":"menuName"}>
                 {ele.name}
             </div>)
         })}

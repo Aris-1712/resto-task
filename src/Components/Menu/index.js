@@ -8,7 +8,7 @@ return(
     <div className="menu">
         {props.data.menu.map((ele,ind)=>{
             return(
-                <div key={ind} className={props.menu===ind?"active":""} onClick={()=>{
+                <div  key={ind} className={props.menu===ind?"menuName active":"menuName"} onClick={()=>{
                     props.setMenu(ind)
                 }}>{ele.menu_name}</div>
             )

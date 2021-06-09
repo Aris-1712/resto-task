@@ -1,21 +1,23 @@
 .menu{
     /* height: 100px; */
-    padding: 20px;
+    padding: 10px;
     display:flex;
     justify-content: space-evenly;
     overflow-x: auto;
 }
-.menu div{
+.menuName{
     /* display: inline; */
     width:100px;
     margin: 0px 20px;
-    border-bottom: 1px solid black;
+    cursor: pointer;
     color: rgb(107, 163, 216);
     text-align: center;
     padding: 10px;
+    text-transform: uppercase;
 }
 .active{
-    color:black !important
+    color:#96771e !important;
+    border-bottom: 1px solid #96771e;
 }
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */

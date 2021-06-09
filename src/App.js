@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Banner from './Components/Banner';
 import Menu from './Components/Menu';
 import Sections from './Components/Sections';
+import MenuItems from './Components/MenuItems';
 function App(props) {
   const getData=()=>{
     console.log("here2");
@@ -15,15 +16,18 @@ props.getData()
     getData()
   },[])
   return (
-    <div className="App">
+    <>
       {"success" in props.data?
-      <>
+      <div className="App" style={{ backgroundImage: `url(${props.data.info.image_url})` }}>
       <Banner></Banner>
+      <div className='menuContainer'>
       <Menu></Menu>
       <Sections></Sections>
-      </>
+      <MenuItems></MenuItems>
+      </div>
+      </div>
       :null}
-    </div>
+    </>
   );
 }
 const mapStateToProps=(state)=>{
