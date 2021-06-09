@@ -1,3 +1,4 @@
+import * as Constants from './Constants'
 const initialState = {
     data: {},
     menu: 0,
@@ -8,13 +9,13 @@ const initialState = {
 
 const Reducer = (state = initialState, Actions) => {
     switch (Actions.type) {
-        case "GET_DATA":
+        case Constants.GET_DATA:
             return ({ ...state, data: Actions.payLoad })
             break;
-        case "SET_MENU":
+        case Constants.SET_MENU:
             return ({ ...state, menu: Actions.payLoad })
             break;
-        case "SET_SECTION":
+        case Constants.SET_SECTION:
             return ({ ...state, section: Actions.payLoad })
             break;
         default:

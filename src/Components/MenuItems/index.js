@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import './MenuItems.css'
-
+import * as Constants from '../../Global/Constants'
 const MenuItems = (props) => {
+    let menuItem=props.data.menu[props.menu].menu_sections[0].menu_categories[props.section]
     return (
         <div className="menuItemsContainer">
-            <h1>{props.data.menu[props.menu].menu_sections[0].menu_categories[props.section].name}</h1>
+            <h1>{menuItem.name}</h1>
             <div style={{textAlign:"center",marginTop:"-20px"}}><img src={`${process.env.PUBLIC_URL}/border.png`} style={{width:90}}></img></div>
             <div className="menuItems">
-                {props.data.menu[props.menu].menu_sections[0].menu_categories[props.section].items.map((ele) => {
+                {menuItem.items.map((ele) => {
                     return(<div className='menuItem'>
                         <img  alt={ele.name} src={ele.image}></img>
                         <div className='menuItemDetail'>
@@ -36,7 +37,7 @@ const mapActionsToProps = (dispatch) => {
     return ({
         setMenu: (val) => {
 
-            dispatch({ type: "SET_MENU", payLoad: val })
+            dispatch({ type: Constants.SET_MENU, payLoad: val })
         }
     })
 }

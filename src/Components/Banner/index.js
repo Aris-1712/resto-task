@@ -7,6 +7,7 @@ const Banner = (props) => {
 
         <div /* style={{ backgroundImage: `url(${props.data.info.image_url})` }} */ className="banner">
             <img src={props.data.info.logo_url}></img>
+            <div className='myorder'>MY ORDERS</div>
             <div className="title">
                 <p>{props.data.info.restaurant_location}</p>
                 <h1>In Room Dining</h1>

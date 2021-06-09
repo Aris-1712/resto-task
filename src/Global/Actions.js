@@ -1,15 +1,16 @@
 import Axios from 'axios'
+import * as Constants from './Constants'
 const getDataReducer = (payLoad) => {
     return ({
-        type: "GET_DATA",
+        type: Constants.GET_DATA,
         payLoad: payLoad
     })
 }
 export const getData = () => {
     return async (dispatch) => {
-        const data = await Axios.get("https://dh-dev-apim.azure-api.net/restaurants/info/v1/QA-SUGARMASH/menu", {
+        const data = await Axios.get(Constants.API, {
             headers: {
-                'Ocp-Apim-Subscription-Key': "c5f67862202f4577ab36a72ad04b38ca"
+                'Ocp-Apim-Subscription-Key':Constants.API_KEY
             }
         })
         dispatch(getDataReducer(data.data))

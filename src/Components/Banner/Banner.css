@@ -13,6 +13,15 @@
     left:20px;
     width: 200px;
 }
+.myorder{
+    width: 101px;
+    padding: 10px;
+    background-color: #7C6E55;
+    color: #ffff;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+}
 .title{
     position: absolute;
     bottom: 10px;

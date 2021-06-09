@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-// import './Menu.css'
-
+import * as Constants from '../../Global/Constants'
 const Sections=(props)=>{
     // const [menu,setMenu]=useState(0)
+    let sections=props.data.menu[props.menu].menu_sections[0].menu_categories
 return(
     <div className="menu">
-        {props.data.menu[props.menu].menu_sections[0].menu_categories.map((ele,ind)=>{
+        {sections.map((ele,ind)=>{
             console.log(ele);
             return(<div  onClick={()=>{
                 props.setSection(ind)
@@ -31,7 +31,7 @@ const mapActionsToProps=(dispatch)=>{
     return({
       setSection:(val)=>{
        
-        dispatch({type:"SET_SECTION",payLoad:val})}
+        dispatch({type:Constants.SET_SECTION,payLoad:val})}
     })
   }
 export default connect(mapStateToProps,mapActionsToProps)(Sections)
