@@ -11,7 +11,7 @@ const MenuItems = (props) => {
             <div className="menuItems">
                 {menuItem.items.map((ele) => {
                     return(<div className='menuItem'>
-                        <img  alt={ele.name} src={ele.image}></img>
+                        <img  alt={ele.name} src={ele.image?ele.image:`${process.env.PUBLIC_URL}/temp.jpg`}></img>
                         <div className='menuItemDetail'>
                             <p >{ele.name}</p>
                             <p>AED {ele.price}</p>
