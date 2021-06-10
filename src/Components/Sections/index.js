@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import * as Constants from '../../Global/Constants'
 const Sections=(props)=>{
-    // const [menu,setMenu]=useState(0)
     let sections=props.data.menu[props.menu].menu_sections[0].menu_categories
+    const clickHandler=(ind)=>{
+        props.setSection(ind)
+        window.scrollTo({top: 0, behavior: 'smooth'})
+    }
 return(
     <div className="menu">
         {sections.map((ele,ind)=>{
             console.log(ele);
-            return(<div  onClick={()=>{
-                props.setSection(ind)
-                window.scrollTo({top: 0, behavior: 'smooth'})
-            }} className={props.section===ind?"menuName active":"menuName"}>
+            return(<div  onClick={()=>clickHandler(ind)} className={props.section===ind?"menuName active":"menuName"}>
                 {ele.name}
             </div>)
         })}

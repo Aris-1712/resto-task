@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import './Menu.css'
 import * as Constants from '../../Global/Constants'
 const Menu=(props)=>{
-    // const [menu,setMenu]=useState(0)
-    let menu=props.data.menu
+   
+    const clickHandler=(ind)=>{
+        props.setMenu(ind)
+    }
 return(
     <div className="menu">
-        {menu.map((ele,ind)=>{
+        {props.menuItems.map((ele,ind)=>{
             return(
-                <div  key={ind} className={props.menu===ind?"menuName active":"menuName"} onClick={()=>{
-                    props.setMenu(ind)
-                }}>{ele.menu_name}</div>
+                <div  key={ind} className={props.menu===ind?"menuName active":"menuName"} onClick={()=>clickHandler(ind)}>{ele.menu_name}</div>
             )
         })}
         
@@ -23,7 +23,8 @@ return(
 const mapStateToProps = (state) => {
     return ({
         data: state.data,
-        menu:state.menu
+        menu:state.menu,
+        menuItems:state.menuItems
     })
 }
 const mapActionsToProps=(dispatch)=>{

@@ -2,7 +2,8 @@ import * as Constants from './Constants'
 const initialState = {
     data: {},
     menu: 0,
-    section: 0
+    section: 0,
+    menuItems:[]
 }
 
 
@@ -10,7 +11,7 @@ const initialState = {
 const Reducer = (state = initialState, Actions) => {
     switch (Actions.type) {
         case Constants.GET_DATA:
-            return ({ ...state, data: Actions.payLoad })
+            return ({ ...state, data: Actions.payLoad,menuItems:Actions.payLoad.menu })
             break;
         case Constants.SET_MENU:
             return ({ ...state, menu: Actions.payLoad })
